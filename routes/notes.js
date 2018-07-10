@@ -106,7 +106,8 @@ router.put('/:id', (req, res, next) => {
           .where('note_id', noteId)
     })
     //noteId lost its value????
-    .then((noteId) => {
+    .then(() => {
+      console.log(`heyyyyyy youuuuu ${noteId}`);
       const tagsInsert = tags.map((tag)=> ({ note_id: noteId, tag_id: tag.id }));
       return knex
               .insert(tagsInsert)
