@@ -17,7 +17,7 @@ router.get('/', (req, res, next) => {
   .leftJoin('notes_tags', 'notes.id', 'note_id')
   .leftJoin('tags', 'tag_id', 'tags.id')
   .modify(queryBuilder => {
-    
+
     if (searchTerm) {
       queryBuilder.where('title', 'like', `%${searchTerm}%`);
     }
